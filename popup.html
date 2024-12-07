@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC - html2epub</title>
+  <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+  <h1>SMC - html2epub</h1>
+
+  <div>
+    <label for="epub-title">Título:</label>
+    <input type="text" id="epub-title" value="" placeholder="Título do EPUB" />
+    
+    <label for="epub-author">Autor:</label>
+    <input type="text" id="epub-author" value="" placeholder="Autor do EPUB" />
+  
+    <button id="convert-page" style="margin-top: 30px;">Converter Página</button>
+    <button id="convert-selection">Converter Seleção</button>
+    <p id="status"></p>
+  </div>
+
+
+  <script src="lib/jszip.min.js" type="text/javascript"></script>
+  <script src="lib/jszip-utils.min.js" type="text/javascript"></script>
+  <script src="popup.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "SMC - html2epub",
+    "version": "1.0",
+    "author": "Sávio Mota Caneiro",
+    "homepage_url": "https://github.com/saviomotac/smc-html2epub-extension",
+    "description": "SMC html2epub converter is a Chrome extension that allows you to effortlessly convert web pages or selected content into EPUB files. Whether you need the entire page or just a section, this tool provides a seamless way to generate well-structured EPUBs directly from your browser",
+    "permissions": [
+      "scripting",
+      "activeTab",
+      "downloads",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"], 
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+      }
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
+  
