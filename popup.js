@@ -143,8 +143,7 @@ function generateEPUB(title, author, uuid, date, htmlContent) {
     zip.file("mimetype", "application/epub+zip", { compression: "STORE" });
 
     zip.folder("META-INF").file(
-        "container.xml", 
-        `<?xml version="1.0" encoding="UTF-8"?>
+        "container.xml", `<?xml version="1.0" encoding="UTF-8"?>
          <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
             <rootfiles>
                 <rootfile full-path="content.opf" media-type="application/oebps-package+xml"/>
@@ -153,8 +152,7 @@ function generateEPUB(title, author, uuid, date, htmlContent) {
          `);
   
     // Adiciona o diretório META-INF e o arquivo container.xml
-    zip.file("toc.ncx", `
-        <?xml version='1.0' encoding='utf-8'?>
+    zip.file("toc.ncx", `<?xml version='1.0' encoding='utf-8'?>
         <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="eng">
         <head>
             <meta content="5cb691a0-6b67-4ed1-9ba1-87c98ebe95b2" name="dtb:uid"/>
@@ -178,13 +176,12 @@ function generateEPUB(title, author, uuid, date, htmlContent) {
     `);
   
     // Adiciona o diretório content com o arquivo content.opf e conteúdo HTML
-    zip.file("content.opf", `
-        <?xml version="1.0" encoding="utf-8"?>
+    zip.file("content.opf", `<?xml version="1.0" encoding="utf-8"?>
         <package version="2.0" unique-identifier="uuid_id" xmlns="http://www.idpf.org/2007/opf">
         <metadata xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <dc:language>pt</dc:language>
             <dc:title>${title}</dc:title>
-            <dc:creator opf:file-as="Unknown" opf:role="aut">${author}</dc:creator>
+            <dc:creator opf:file-as="${author}" opf:role="aut">${author}</dc:creator>
             <dc:contributor opf:role="bkp" />
             <meta name="calibre:timestamp" content="2024-12-07T00:42:45.669926+00:00" />
             <dc:identifier id="uuid_id" opf:scheme="uuid">${uuid}</dc:identifier>
@@ -201,8 +198,7 @@ function generateEPUB(title, author, uuid, date, htmlContent) {
         </spine>
         </package>
       `);
-    zip.file("index.html", `
-        <!DOCTYPE html>
+    zip.file("index.html", `<!DOCTYPE html>
         <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
           <title>${title}</title>
